@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hydrus Bridge Launcher</title>
+  <link rel="stylesheet" href="./launcher.css">
+</head>
+<body>
+  <main class="card">
+    <div class="orb"></div>
+    <p class="eyebrow">Eagle → Hydrus</p>
+    <h1>Hydrus Bridge</h1>
+    <p id="status">Starting local browser GUI…</p>
+    <div class="buttons">
+      <button id="openButton" disabled>Open browser GUI</button>
+      <button id="stopButton" disabled>Stop server</button>
+    </div>
+    <p class="note">
+      Keep this Eagle plugin window open while using the Firefox/browser tab.
+      Closing it will stop the local bridge server.
+    </p>
+    <pre id="details"></pre>
+  </main>
+  <script src="./js/launcher.js"></script>
+</body>
+</html>

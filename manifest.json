@@ -1,0 +1,33 @@
+{
+  "id": "HYDRUSBRIDGE01",
+  "version": "0.2.2",
+  "platform": "all",
+  "arch": "all",
+  "name": "Hydrus Bridge",
+  "logo": "/logo.png",
+  "keywords": [
+    "hydrus",
+    "sidecar",
+    "export",
+    "tags",
+    "eagle"
+  ],
+  "devTools": true,
+  "main": {
+    "url": "index.html",
+    "width": 520,
+    "height": 420,
+    "minWidth": 460,
+    "minHeight": 360,
+    "alwaysOnTop": false,
+    "frame": true,
+    "fullscreenable": false,
+    "maximizable": false,
+    "minimizable": true,
+    "resizable": true,
+    "backgroundColor": "#dff6ff",
+    "childWindow": false,
+    "multiple": false,
+    "runAfterInstall": false
+  }
+}

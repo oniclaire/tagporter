@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hydrus Bridge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <div class="aero-orb orb-a"></div>
+  <div class="aero-orb orb-b"></div>
+
+  <main class="shell">
+    <header class="hero glass">
+      <div>
+        <p class="eyebrow">Eagle → Hydrus</p>
+        <h1>Hydrus Bridge</h1>
+        <p class="subtitle">Export Eagle tags as Hydrus-ready image + <code>.txt</code> sidecar pairs.</p>
+      </div>
+      <div class="badge" id="healthBadge">Localhost</div>
+    </header>
+
+    <section class="glass panel">
+      <h2>1. Choose Eagle source</h2>
+      <div class="source-row">
+        <label class="radio-card">
+          <input type="radio" name="scope" value="selected" checked>
+          <span>
+            <b>Current Eagle selection</b>
+            <small>Best for normal use. Select images in Eagle, then refresh here.</small>
+          </span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="scope" value="all">
+          <span>
+            <b>Entire Eagle library</b>
+            <small>Useful later, but test selected items first.</small>
+          </span>
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="loadItems" class="primary">Load / refresh items</button>
+        <button id="selectAll">Select all rows</button>
+        <button id="selectNone">Select none</button>
+      </div>
+      <div id="sourceStatus" class="status"></div>
+    </section>
+
+    <section class="glass panel">
+      <h2>2. Choose Hydrus pickup folder</h2>
+      <label>Target folder Hydrus will import from</label>
+      <div class="path-row">
+        <input id="targetFolder" type="text" placeholder="D:\Hydrus Import Queue">
+        <button id="browseTarget">Browse…</button>
+      </div>
+
+      <div class="options">
+        <label><input id="overwrite" type="checkbox"> Overwrite image/text pairs already in target</label>
+        <label><input id="trashAfterCopy" type="checkbox"> After successful copy, move Eagle items to Trash</label>
+      </div>
+      <p class="microcopy">
+        This plugin copies files out of Eagle. It does <b>not</b> raw-move Eagle’s internal library files, because that can break Eagle records.
+        The “Trash after copy” option is the safer cut-like cleanup.
+      </p>
+    </section>
+
+    <section class="glass panel">
+      <h2>3. Tag options</h2>
+      <div class="grid three">
+        <label><input id="includeUrl" type="checkbox"> Add source URL as <code>source:[url]</code></label>
+        <label><input id="includeRating" type="checkbox"> Add rating as <code>rating:eagle_#</code></label>
+        <label><input id="prefixTags" type="checkbox"> Prefix Eagle tags as <code>eagle:[tag]</code></label>
+      </div>
+
+      <h3 class="subhead">Export popup animation</h3>
+      <div class="grid three">
+        <label><input id="showExportPopups" type="checkbox" checked> Show draggable export popups</label>
+        <label><input id="playExportSounds" type="checkbox" checked> Play populate/bloop sounds</label>
+        <label><input id="playBgAmbience" type="checkbox" checked> Play soft bg ambience</label>
+        <label><input id="keepPopups" type="checkbox" checked> Keep popups on screen after typing</label>
+      </div>
+
+      <div class="button-row">
+        <button id="rebuildSidecars">Rebuild sidecar text from Eagle tags</button>
+        <button id="clearPopups">Clear popups</button>
+        <button id="exportPairs" class="dangerish">Export selected pairs</button>
+      </div>
+      <div id="exportStatus" class="status"></div>
+    </section>
+
+    <section class="glass panel table-panel">
+      <div class="table-header">
+        <h2>4. Review image + sidecar pairs</h2>
+        <div class="mini-stats" id="miniStats">No records loaded</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Use</th>
+              <th>Image</th>
+              <th>Output image file</th>
+              <th>Sidecar file</th>
+              <th>Sidecar text</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody">
+            <tr><td colspan="6" class="empty">Select images in Eagle, then click “Load / refresh items.”</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Keep the small Eagle plugin launcher window open while this tab is active.</p>
+    </footer>
+  </main>
+
+  <div id="exportStage" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
