@@ -1,4 +1,4 @@
-# Hydrus Bridge for Eagle
+# Tagporter for Eagle
 
 Version: 0.1.1 path-detection patch
 
