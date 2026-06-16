@@ -9,6 +9,37 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs/temp
+*.log
+*.tmp
+*.bak
+
+# Local test/export folders
+exports/
+export/
+hydrus-import/
+hydrus-import-queue/
+test-output/
+test-images/
+sample-output/
+
+# Eagle/Hydrus personal data
+*.eaglepack
+*.db
+*.sqlite
+*.sqlite3
+
+# Node/npm, in case this later gets a build step
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # Runtime data
 pids
 *.pid
@@ -141,3 +172,4 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
